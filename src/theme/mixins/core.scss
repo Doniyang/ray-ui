@@ -1,0 +1,16 @@
+@import  "../utils/toolkit.scss";
+@mixin set($prop,$val,$unit:1upx) {
+	#{$prop}:if(is-number($val) and  unitless($number: $val),pixel($val,$unit),$val)
+};
+
+@mixin size($w,$h:$w) {
+	@include set('width',$w);
+	@include set('height',$w);
+}
+
+@mixin set-position($top,$left,$bottom:$top,$right:$left) {
+	@include set('top',$top);
+	@include set('left',$left);
+	@include set('bottom',$bottom);
+	@include set('right',$right);
+}

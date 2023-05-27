@@ -1,0 +1,18 @@
+@import  "../utils/toolkit.scss";
+@import  "./core.scss";
+@mixin generate($start,$end,$step,$prefix,$prop,$unit) {
+	$list:range($start,$end,$step);
+	$selector:unquote($string: ".")+unquote($string: $prefix)+unquote($string: "-");
+	@each $size in $list {
+		#{$selector + ($size/$step)}{ 
+			@if is-list($prop) {
+			 	@each $p in $prop {
+			 		@include set($p,$size,$unit);
+			 	}
+			}
+			@else{
+				@include set($prop,$size,$unit);
+			}
+		}
+	}
+}

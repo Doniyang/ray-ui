@@ -1,0 +1,24 @@
+@mixin create-class($name) {
+	$prefix: RAY;
+	$selector: selector-append(unquote($string: "."),to-lower-case($string: $prefix),unquote($string: "-"),$name);
+	#{$selector}{
+		@content
+	}
+};
+
+@mixin when($name) {
+	$selector: selector-append(&,unquote($string: "--is-"),$name);
+	&#{$selector}{
+		@content
+	}
+};
+
+@mixin sub-class($name) {
+	$selector: selector-append(&,unquote($string: "-"),$name);
+	#{$selector}{
+		@content
+	}
+};
+
+
+

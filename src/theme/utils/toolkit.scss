@@ -1,0 +1,20 @@
+@function is-number($v){
+	@return type-of($value: $v)=="number"
+};
+
+@function is-list($list){
+	@return type-of($value: $list) =='list'
+};
+
+@function range($start,$end,$step){
+	$list:();
+	@for $v from $start to $end {
+		$list:append($list, $val: ($v*$step), $separator: 'comma')
+	}
+	@return $list
+};
+
+@function pixel($val,$unit){
+	@return $val * $unit
+}
+
