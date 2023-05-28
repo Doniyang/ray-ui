@@ -1,11 +1,11 @@
 <template>
-	<view class="component aui-collapse">
+	<view class="component ray-collapse">
 		<slot />
 	</view>
 </template>
 <script>
 	export default {
-		name: 'aui-collapse',
+		name: 'ray-collapse',
 		props: {
 			accordion: {
 				// 是否开启手风琴效果
@@ -43,7 +43,7 @@
 	}
 </script>
 <style lang="scss" scoped>
-	.aui-collapse {
+	.ray-collapse {
 		position: relative;
 		width: 100%;
 		display: flex;

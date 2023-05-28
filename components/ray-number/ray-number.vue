@@ -1,8 +1,8 @@
 <template>
 	<input type="text" 
-	            placeholder-class="aui-number-placeholder" 
-				class="component aui-number"
-		        :class="{ 'aui-number--is-disabled' : disabled }" 
+	            placeholder-class="ray-number-placeholder" 
+				class="component ray-number"
+		        :class="{ 'ray-number--is-disabled' : disabled }" 
 				:placeholder="placeholder"
 				:maxlength="maxlength"
 		        :disabled="isDisabled" 
@@ -15,10 +15,10 @@
 
 <script>
 	import ToolKit from "../../src/toolkit/toolkit.js"
-	import AuiField from "../aui-field/aui-field.vue"
+	import RayField from "../ray-field/ray-field.vue"
 	export default {
-		name: "aui-number",
-		extends: AuiField,
+		name: "ray-number",
+		extends: RayField,
 		props: {
 			focus: {
 				type: Boolean,
@@ -108,7 +108,7 @@
 </script>
 
 <style lang="scss" scoped>
-.aui-number {
+.ray-number {
 	flex: 1;
 	box-sizing: border-box;
 	text-align: right;
@@ -116,11 +116,11 @@
 	color: #000F21;
 	width: 100%;
 	
-	&.aui-number--is-disabled {
+	&.ray-number--is-disabled {
 		color: #999999;
 	}
 	
-	.aui-number-placeholder {
+	.ray-number-placeholder {
 		font-size: 30upx;
 	}		
 }

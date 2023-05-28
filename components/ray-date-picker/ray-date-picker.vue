@@ -1,16 +1,16 @@
 <template>
-	<view class="component aui-date-picker" @click.once="onTapClick">
-		<picker class="aui-date-picker__picker" mode="multiSelector" range-key="label" :disabled="disabled" :range="auiPickerRangeList" :value="auiSelectionList" @change="onPickerChange" @columnchange="onPickerColumnChange">
-			<input disabled placeholder-class="aui-date-picker-placeholder" class="aui-date-picker__selection" :placeholder="placeholder" :value="aui_select_text" :class="{'aui-date-picker__selection--is-disabled':disabled}" />
+	<view class="component ray-date-picker" @click.once="onTapClick">
+		<picker class="ray-date-picker__picker" mode="multiSelector" range-key="label" :disabled="disabled" :range="rayPickerRangeList" :value="raySelectionList" @change="onPickerChange" @columnchange="onPickerColumnChange">
+			<input disabled placeholder-class="ray-date-picker-placeholder" class="ray-date-picker__selection" :placeholder="placeholder" :value="ray_select_text" :class="{'ray-date-picker__selection--is-disabled':disabled}" />
 		</picker>
-		<image v-if="!disabled" class="aui-date-picker-icon" src="./icon/right.svg" mode="aspectFit"></image>
+		<image v-if="!disabled" class="ray-date-picker-icon" src="./icon/right.svg" mode="aspectFit"></image>
 	</view>
 </template>
 <script>
-	import AuiField from "../aui-field/aui-field.vue"
+	import RayField from "../ray-field/ray-field.vue"
 	export default {
-		name: "aui-date-picker",
-		extends: AuiField,
+		name: "ray-date-picker",
+		extends: RayField,
 		model: { event: 'change' },
 		props: {
 			//YYYY-MM-DD mm:ss
@@ -55,9 +55,9 @@
 			return {
 				startDate: null,
 				endDate: null,
-				auiPickerRangeList: [],
-				auiSelectionList: [],
-				aui_select_text: ''
+				rayPickerRangeList: [],
+				raySelectionList: [],
+				ray_select_text: ''
 			}
 		},
 		created() {
@@ -141,15 +141,15 @@
 			 */
 			initYearPicker(date) {
 				this.resetPicker()
-				let auiYearPickerList = Array.from({
+				let rayYearPickerList = Array.from({
 					length: this.endDate.getFullYear() - this.startDate.getFullYear() + 1
 				}, (v, i) => ({
 					label: (this.startDate.getFullYear() + i) + '年',
 					value: this.startDate.getFullYear() + i
 				}))
-				let auiSelectionIndex = Math.max(auiYearPickerList.findIndex(year => this.equals(date.getFullYear(), year.value)), 0)
-				this.auiPickerRangeList.splice(0, 1, auiYearPickerList)
-				this.auiSelectionList.splice(0, 1, auiSelectionIndex)
+				let raySelectionIndex = Math.max(rayYearPickerList.findIndex(year => this.equals(date.getFullYear(), year.value)), 0)
+				this.rayPickerRangeList.splice(0, 1, rayYearPickerList)
+				this.raySelectionList.splice(0, 1, raySelectionIndex)
 			},
 			/**
 			 * 初始化月
@@ -157,8 +157,8 @@
 			 */
 			initMonthPicker(date) {
 				this.initYearPicker(date)
-				this.auiPickerRangeList.push(this.auiYearPickerList)
-				this.auiSelectionList.push(this.auiSelectionIndex)
+				this.rayPickerRangeList.push(this.rayYearPickerList)
+				this.raySelectionList.push(this.raySelectionIndex)
 				this.updateMonthPicker(date)
 			},
 			/**
@@ -192,15 +192,15 @@
 			updateMonthPicker(date) {
 				let startIndex = this.equals(date.getFullYear(), this.startDate.getFullYear()) ? (this.startDate.getMonth() + 1) : 1;
 				let endIndex = this.equals(date.getFullYear(), this.endDate.getFullYear()) ? (this.endDate.getMonth() + 1) : 12;
-				let auiMonthPickerList = Array.from({
+				let rayMonthPickerList = Array.from({
 					length: endIndex - startIndex + 1
 				}, (v, i) => ({
 					label: (startIndex + i) + '月',
 					value: startIndex + i
 				}))
-				let auiMonthIndex = Math.max(auiMonthPickerList.findIndex(month => this.equals(date.getMonth(), month.value - 1)), 0)
-				this.auiPickerRangeList.splice(1, 1, auiMonthPickerList)
-				this.auiSelectionList.splice(1, 1, auiMonthIndex)
+				let rayMonthIndex = Math.max(rayMonthPickerList.findIndex(month => this.equals(date.getMonth(), month.value - 1)), 0)
+				this.rayPickerRangeList.splice(1, 1, rayMonthPickerList)
+				this.raySelectionList.splice(1, 1, rayMonthIndex)
 			},
 			/**
 			 * 更新日期选择列表
@@ -209,15 +209,15 @@
 			updateDayPicker(date) {
 				let startIndex = this.equals(date.getFullYear(), this.startDate.getFullYear()) && this.equals(date.getMonth(), this.startDate.getMonth()) ? this.startDate.getDate() : 1;
 				let endIndex = this.equals(date.getFullYear(), this.endDate.getFullYear()) && this.equals(date.getMonth(), this.endDate.getMonth()) ? this.endDate.getDate() : this.getMaxDate(date)
-				let auiDayPickerList = Array.from({
+				let rayDayPickerList = Array.from({
 					length: endIndex - startIndex + 1
 				}, (v, i) => ({
 					label: (startIndex + i) + '日',
 					value: startIndex + i
 				}))
-				let auiDayIndex = Math.max(auiDayPickerList.findIndex(day => this.equals(date.getDate(), day.value)), 0)
-				this.auiPickerRangeList.splice(2, 1, auiDayPickerList)
-				this.auiSelectionList.splice(2, 1, auiDayIndex)
+				let rayDayIndex = Math.max(rayDayPickerList.findIndex(day => this.equals(date.getDate(), day.value)), 0)
+				this.rayPickerRangeList.splice(2, 1, rayDayPickerList)
+				this.raySelectionList.splice(2, 1, rayDayIndex)
 			},
 			/**
 			 * 更新时选择列表
@@ -226,15 +226,15 @@
 			updateHourPicker(date) {
 				let startIndex = this.equals(date.getFullYear(), this.startDate.getFullYear()) && this.equals(date.getMonth(), this.startDate.getMonth()) && this.equals(date.getDate(), this.startDate.getDate()) ? this.startDate.getHours() : 0;
 				let endIndex = this.equals(date.getFullYear(), this.endDate.getFullYear()) && this.equals(date.getMonth(), this.endDate.getMonth()) && this.equals(date.getDate(), this.endDate.getDate()) ? this.endDate.getHours() : 23
-				let auiHourPickerList = Array.from({
+				let rayHourPickerList = Array.from({
 					length: endIndex - startIndex + 1
 				}, (v, i) => ({
 					label: (startIndex + i) + '时',
 					value: startIndex + i
 				}))
-				let auiHourIndex = Math.max(auiHourPickerList.findIndex(hour => this.equals(date.getHours(), hour.value)), 0)
-				this.auiPickerRangeList.splice(3, 1, auiHourPickerList)
-				this.auiSelectionList.splice(3, 1, auiHourIndex)
+				let rayHourIndex = Math.max(rayHourPickerList.findIndex(hour => this.equals(date.getHours(), hour.value)), 0)
+				this.rayPickerRangeList.splice(3, 1, rayHourPickerList)
+				this.raySelectionList.splice(3, 1, rayHourIndex)
 			},
 			/**
 			 * 更新秒选择列表
@@ -243,15 +243,15 @@
 			updateMinutePicker(date) {
 				let startIndex = this.equals(date.getFullYear(), this.startDate.getFullYear()) && this.equals(date.getMonth(), this.startDate.getMonth()) && this.equals(date.getDate(), this.startDate.getDate()) && this.equals(date.getHours(), this.startDate.getHours()) ? this.startDate.getMinutes() : 0;
 				let endIndex = this.equals(date.getFullYear(), this.endDate.getFullYear()) && this.equals(date.getMonth(), this.endDate.getMonth()) && this.equals(date.getDate(), this.endDate.getDate()) && this.equals(date.getHours(), this.endDate.getHours()) ? this.endDate.getMinutes() : 59
-				let auiMinutePickerList = Array.from({
+				let rayMinutePickerList = Array.from({
 					length: endIndex - startIndex + 1
 				}, (v, i) => ({
 					label: (startIndex + i) + '秒',
 					value: startIndex + i
 				}))
-				let auiMinuteIndex = Math.max(auiMinutePickerList.findIndex(minute => this.equals(date.getMinutes(), minute.value)), 0)
-				this.auiPickerRangeList.splice(3, 1, auiMinutePickerList)
-				this.auiSelectionList.splice(3, 1, auiMinuteIndex)
+				let rayMinuteIndex = Math.max(rayMinutePickerList.findIndex(minute => this.equals(date.getMinutes(), minute.value)), 0)
+				this.rayPickerRangeList.splice(3, 1, rayMinutePickerList)
+				this.raySelectionList.splice(3, 1, rayMinuteIndex)
 			},
 			/**
 			 * 显示时间
@@ -266,14 +266,14 @@
 					'minute': 'YYYY年MM月DD日 hh时mm秒'
 				}
 				console.log(date)
-				this.aui_select_text = this.formater(date, MAP[this.field])
+				this.ray_select_text = this.formater(date, MAP[this.field])
 			},
 			/**
 			 * 确定按钮事件
 			 * @param {Event} e
 			 */
 			onPickerChange(e) {
-				let datestr = e.detail.value.map((v, i) => this.auiPickerRangeList[i][v]['value']).join('-')
+				let datestr = e.detail.value.map((v, i) => this.rayPickerRangeList[i][v]['value']).join('-')
 				let date = this.parse(datestr)
 				this.updateSelection(date)
 				this.$emit('change', this.formater(date, this.formator))
@@ -285,7 +285,7 @@
 			onPickerColumnChange(e) {
 				let column = e.detail.column; // 改变的列的下标
 				let value = e.detail.value; // 变更值的下标
-				this.auiSelectionList.splice(column, 1, value)
+				this.raySelectionList.splice(column, 1, value)
 				this.updatePickerRangeList(column)
 			},
 			/**
@@ -300,7 +300,7 @@
 					hour: [this.updateMonthPicker, this.updateDayPicker, this.updateHourPicker],
 					minute: [this.updateMonthPicker, this.updateDayPicker, this.updateHourPicker, this.updateMinutePicker]
 				}
-				let datestr = this.auiSelectionList.map((v, i) => i <= cols ? this.auiPickerRangeList[i][v]['value'] : 1).join('-')
+				let datestr = this.raySelectionList.map((v, i) => i <= cols ? this.rayPickerRangeList[i][v]['value'] : 1).join('-')
 				let date = this.parse(datestr)
 				if(date <= this.startDate) {
 					date = this.startDate
@@ -316,8 +316,8 @@
 			 * 重置
 			 */
 			resetPicker() {
-				this.auiPickerRangeList = []
-				this.auiSelectionList = []
+				this.rayPickerRangeList = []
+				this.raySelectionList = []
 			},
 			/**
 			 * 月份的最大天数
@@ -381,7 +381,7 @@
 	}
 </script>
 <style lang="scss" scoped>
-	.aui-date-picker {
+	.ray-date-picker {
 		display: flex;
 		align-items: center;
 

@@ -1,24 +1,24 @@
 <template>
-	<view class="component aui-form-detail">
+	<view class="component ray-form-detail">
 		<template v-for="(field,dx) in fieldList">
-			<aui-cell :label="field.label" divider :key="dx" v-if="showFormItem(field.linkage,field.show)">
+			<ray-cell :label="field.label" divider :key="dx" v-if="showFormItem(field.linkage,field.show)">
 				<text>{{dataItem[field.key] | rawStringFilter(field.formator) }}</text>
 				<template v-slot:extra>
-					<aui-button v-if="field.bValue" size="mini" :block="false" class="aui-form-detail--suffix-btn" @click.stop="onExtraBtnClick(field)">{{field.bValue}}</aui-button>
+					<ray-button v-if="field.bValue" size="mini" :block="false" class="ray-form-detail--suffix-btn" @click.stop="onExtraBtnClick(field)">{{field.bValue}}</ray-button>
 				</template>
-			</aui-cell>
+			</ray-cell>
 		</template>
 	</view>
 </template>
 
 <script>
-	import AuiCell from '../aui-cell/aui-cell.vue'
-	import AuiButton from '../aui-button/aui-button.vue'
+	import RayCell from '../ray-cell/ray-cell.vue'
+	import RayButton from '../ray-button/ray-button.vue'
 	import ToolKit from '../../src/toolkit/toolkit.js'
 	import { money, percent, selection, phone } from "../../src/formater/formater.js"
 	export default {
-		name:"aui-form-detail",
-		components:{ AuiCell,AuiButton },
+		name:"ray-form-detail",
+		components:{ RayCell,RayButton },
 		props:{
 			options:{
 				type:Array,
@@ -104,7 +104,13 @@
 </script>
 
 <style lang="scss" scoped>
-.aui-form-detail--suffix-btn{
+.ray-form-detail{
+	display: block;
+	padding: 0  30upx 10upx;
+	margin: 0;
+	background: #FFFFFF;
+}
+.ray-form-detail--suffix-btn{
 	vertical-align: middle;
 	border-radius: 40upx;
 	background-color: #E5F9E5;

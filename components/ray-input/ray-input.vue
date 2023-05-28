@@ -1,9 +1,9 @@
 <template>
-	<input class="component aui-input"
-	            placeholder-class="aui-input-placeholder" 
+	<input class="component ray-input"
+	            placeholder-class="ray-input-placeholder" 
 	            :type="type"
 	            :disabled="isDisabled"
-				:class="{ 'aui-input--is-disabled' : disabled }"
+				:class="{ 'ray-input--is-disabled' : disabled }"
 				:focus="focus" 
 				:placeholder="placeholder"
 				:value="fmtValue"  
@@ -14,10 +14,10 @@
 
 <script>
 	import ToolKit from '../../src/toolkit/toolkit.js'
-	import AuiField from "../aui-field/aui-field.vue"
+	import RayField from "../ray-field/ray-field.vue"
 	export default {
-		name:"aui-input",
-		extends:AuiField,
+		name:"ray-input",
+		extends:RayField,
 		props:{
 			type:{
 				type:String,
@@ -102,7 +102,7 @@
 </script>
 
 <style lang="scss" scoped>
-.component.aui-input {
+.component.ray-input {
 	flex: 1;
 	box-sizing: border-box;
 	text-align: right;
@@ -110,11 +110,11 @@
 	color: #000F21;
 	width: 100%;
 	
-	&.aui-input--is-disabled {
+	&.ray-input--is-disabled {
 		color: #999999;
 	}
 	
-	.aui-input-placeholder {
+	.ray-input-placeholder {
 	   font-size: 30upx;
 	}
 }

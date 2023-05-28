@@ -1,37 +1,37 @@
 <template>
-	<view class="component aui-form-item">
+	<view class="component ray-form-item">
 		<view :class="wrapClass">
-			<view class="aui-form-item--is-prefix">
+			<view class="ray-form-item--is-prefix">
 				<slot name="prefix"></slot>
 			</view>
-			<view class="aui-form-item-label-wrap" :class="labelClass">
+			<view class="ray-form-item-label-wrap" :class="labelClass">
 				<slot name="label">{{label}}</slot>
 			</view>
-			<view class="aui-form-item-input-wrap" :class="fieldClass">
+			<view class="ray-form-item-input-wrap" :class="fieldClass">
 				<slot></slot>
 			</view>
-			<view class="aui-form-item--is-suffix">
+			<view class="ray-form-item--is-suffix">
 				<slot name="suffix"></slot>
 			</view>
 		</view>
 		<slot name="error.message">
-			<view class="aui-form-item-msgbox" v-if="invalid">
-				<text class="aui-form-item-tip">*</text>
-				<text class="aui-form-item-tip">{{ errMsg }}</text>
+			<view class="ray-form-item-msgbox" v-if="invalid">
+				<text class="ray-form-item-tip">*</text>
+				<text class="ray-form-item-tip">{{ errMsg }}</text>
 			</view>
 		</slot>	
-		<view class="aui-form-item-divider" :class="{'aui-form-item--has-error': invalid }"></view>
+		<view class="ray-form-item-divider" :class="{'ray-form-item--has-error': invalid }"></view>
 	</view>
 </template>
 
 <script>
 	import ToolKit from "../../src/toolkit/toolkit.js"
 	export default {
-		name:"aui-form-item",
+		name:"ray-form-item",
 		props:{
 			wrapClass:{
 				type:[String,Object,Array],
-				default:'aui-form-item-wrap'
+				default:'ray-form-item-wrap'
 			},
 			fieldClass:{
 				type:[String,Object,Array],
@@ -167,45 +167,45 @@
 </script>
 
 <style lang="scss" scoped>
-.component.aui-form-item{
+.component.ray-form-item{
 	position: relative;
 	padding: 0 30upx;
 	&:nth-last-child(1){
-	    .aui-form-item-divider:not(.aui-form-item--has-error){
+	    .ray-form-item-divider:not(.ray-form-item--has-error){
 			display: none;
 		} 
 	}
 	
 	
-	.aui-form-item-wrap{
+	.ray-form-item-wrap{
 		display: flex;
 		align-items: center;
 		overflow: hidden;
 		min-height: 100upx;
 	}
-	.aui-form-item-label-wrap{
+	.ray-form-item-label-wrap{
 		display: flex;
 		align-items: center;
 		width: auto;
 	}
-	.aui-form-item-input-wrap{
+	.ray-form-item-input-wrap{
 		flex: 1;
 		max-width: calc(100%);
 		position: relative;
 		padding: 0 0 0 30upx;
 	}
 	
-	.aui-form-item-msgbox{
+	.ray-form-item-msgbox{
 		position: absolute;
 		bottom: 0;
 		right: 30upx;
 	}
-	.aui-form-item-tip{
+	.ray-form-item-tip{
 		color: #FF0000;
 		font-size: 20upx;
 		line-height: 20upx;
 	}
-	.aui-form-item-divider{
+	.ray-form-item-divider{
 		position: absolute;
 		left: 20upx;
 		right: 20upx;
@@ -213,7 +213,7 @@
 		height: 1px;
 		transform: scaleY(0.5);
 		background-color:  #E6E6E6;
-		&.aui-form-item--has-error{
+		&.ray-form-item--has-error{
 			background-color: #FF7474;
 		}
 	}

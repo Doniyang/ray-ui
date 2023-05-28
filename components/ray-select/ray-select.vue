@@ -1,22 +1,22 @@
 <template>
-	<view class="component aui-select">
-		<view class="aui-select__wrap" @click.once="onTapClick">
-			<picker class="aui-select__picker" @change="onPickerChange" mode="selector" :value="selectedIndex" :range="selectOptionList"  :disabled="isDisabled">
+	<view class="component ray-select">
+		<view class="ray-select__wrap" @click.once="onTapClick">
+			<picker class="ray-select__picker" @change="onPickerChange" mode="selector" :value="selectedIndex" :range="selectOptionList"  :disabled="isDisabled">
 				 <slot name="header">
-					 <input  disabled placeholder-class="aui-select-placeholder"  class="aui-select__selection" :placeholder="placeholder" :value="selection" :class="{'aui-select__selection--is-disabled':disabled}"/>
+					 <input  disabled placeholder-class="ray-select-placeholder"  class="ray-select__selection" :placeholder="placeholder" :value="selection" :class="{'ray-select__selection--is-disabled':disabled}"/>
 				 </slot> 
 			</picker>
-			<image v-if="!isDisabled"  class="aui-select-icon" src="./icon/right.svg" mode="aspectFit"></image>
+			<image v-if="!isDisabled"  class="ray-select-icon" src="./icon/right.svg" mode="aspectFit"></image>
 		</view>
 		<slot :selection="selection" v-if="breakLine"></slot>
 	</view>
 </template>
 
 <script>
-	import AuiField from "../aui-field/aui-field.vue"
+	import RayField from "../ray-field/ray-field.vue"
 	export default {
-		name:"aui-select",
-		extends: AuiField,
+		name:"ray-select",
+		extends: RayField,
 		model:{ event: 'change' },
 		props:{
 			value:{
@@ -120,7 +120,7 @@
 </script>
 
 <style lang="scss" scoped>
-.aui-select{
+.ray-select{
     position: static;
 	&__wrap{
 		display: flex;

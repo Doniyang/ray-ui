@@ -1,42 +1,42 @@
 <template>
-	<view class="component aui-cascade">
-		   <view class="aui-cascade__header" @click.stop="onOpenClick">
+	<view class="component ray-cascade">
+		   <view class="ray-cascade__header" @click.stop="onOpenClick">
 			 <slot name="header" :selection="selection_txt"></slot>
-			  <image src="./icon/right.svg" mode="aspectFit" class="aui-cascade-icon" v-if="!disabled"></image>
+			  <image src="./icon/right.svg" mode="aspectFit" class="ray-cascade-icon" v-if="!disabled"></image>
 		   </view>
 		   <slot :selection="selection_txt"></slot>
-		   <aui-popup animation :maskable="false" type="bottom" :visible="isOpen">
-			   <view class="aui-cascade-popup-wrap">
-			   	   <view class="aui-cascade-popup-header">
-						<view class="aui-cascade-popup-cancel" @click.stop="onClose">取消</view>
-						<view class="aui-cascade-popup-title">{{ label }}</view>
-						<view class="aui-cascade-popup-confirm" @click.stop="onConfirm">确定</view>
+		   <ray-popup animation :maskable="false" type="bottom" :visible="isOpen">
+			   <view class="ray-cascade-popup-wrap">
+			   	   <view class="ray-cascade-popup-header">
+						<view class="ray-cascade-popup-cancel" @click.stop="onClose">取消</view>
+						<view class="ray-cascade-popup-title">{{ label }}</view>
+						<view class="ray-cascade-popup-confirm" @click.stop="onConfirm">确定</view>
 			   	   </view>
-				   <view class="aui-cascade-popup-selection">
-				   	    <view class="aui-cascade-popup-selection-item" v-for="(sel,mx) in selection_list" :class="{'is-actived':sel.value === selection_code}" :key="mx" @click.stop="onSelectionClick(mx)">{{sel[itemValue]}}</view>
+				   <view class="ray-cascade-popup-selection">
+				   	    <view class="ray-cascade-popup-selection-item" v-for="(sel,mx) in selection_list" :class="{'is-actived':sel.value === selection_code}" :key="mx" @click.stop="onSelectionClick(mx)">{{sel[itemValue]}}</view>
 				   </view>
-				   <view class="aui-cascade-popup-main">
-					   <view class="aui-cascade-popup-panel">
-						   <scroll-view class="aui-cascade-full" scroll-y="true">
-								   <view v-for="(item,dx) in cascadeList" class="aui-cascade-item" :key="dx" :class="{'is-actived': item.value === selection_code }"  @click.stop="onChoose(item)">
-									   <view class="aui-cascade-item__selection"></view>
-									   <view class="aui-cascade-item__label">{{ item.label }}</view>
+				   <view class="ray-cascade-popup-main">
+					   <view class="ray-cascade-popup-panel">
+						   <scroll-view class="ray-cascade-full" scroll-y="true">
+								   <view v-for="(item,dx) in cascadeList" class="ray-cascade-item" :key="dx" :class="{'is-actived': item.value === selection_code }"  @click.stop="onChoose(item)">
+									   <view class="ray-cascade-item__selection"></view>
+									   <view class="ray-cascade-item__label">{{ item.label }}</view>
 								   </view>
 						   </scroll-view>
 					   </view>
 				   </view>
 			   </view>
-		   </aui-popup>
+		   </ray-popup>
 	</view>
 </template>
 
 <script>
-	import AuiPopup from '../aui-popup/aui-popup.vue'
+	import RayPopup from '../ray-popup/ray-popup.vue'
 	import Store from './model/Store.js'
 	import ToolKit from '../../src/toolkit/toolkit.js'
 	export default {
-		name:"aui-cascade",
-		components:{AuiPopup},
+		name:"ray-cascade",
+		components:{RayPopup},
 		props:{
 		   value:{
 			 type:Array,
@@ -272,7 +272,7 @@
 </script>
 
 <style lang="scss" scoped>
-.aui-cascade{
+.ray-cascade{
 	flex: 1;
 	width: 100%;
 	
@@ -396,16 +396,16 @@
 		color:#00A73D;
 		font-weight: 500;
 		
-		.aui-cascade-item__selection{
+		.ray-cascade-item__selection{
 			display: block;
 		}
-		.aui-cascade-item__label{
+		.ray-cascade-item__label{
 			color:#00A73D;
 			font-weight: 500;
 			padding-left: 0;
 		}
 		
-		&.aui-cascade-popup-selection-item{
+		&.ray-cascade-popup-selection-item{
 			&::after{
 				position: absolute;
 				bottom: 0;

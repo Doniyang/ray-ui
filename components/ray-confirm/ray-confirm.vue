@@ -6,7 +6,7 @@
 
 <script>
 	export default {
-		name:"aui-confirm",
+		name:"ray-confirm",
 		data() {
 			return {
 				

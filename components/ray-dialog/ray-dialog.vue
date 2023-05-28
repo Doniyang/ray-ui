@@ -1,28 +1,28 @@
 <template>
-	<aui-popup type="center" animation :visible="isVisible">
-		<view class="component aui-dialog">
-			<view class="aui-dialog__header">
-				<view class="aui-dialog__title">{{title}}</view>
-				<view class="aui-dialog__close" @click="onClose">
-					<span class="aui-dialog__icon"></span>
-					<span class="aui-dialog__icon"></span>
+	<ray-popup type="center" animation :visible="isVisible">
+		<view class="component ray-dialog">
+			<view class="ray-dialog__header">
+				<view class="ray-dialog__title">{{title}}</view>
+				<view class="ray-dialog__close" @click="onClose">
+					<span class="ray-dialog__icon"></span>
+					<span class="ray-dialog__icon"></span>
 				</view>
 			</view>
-			<view class="aui-dialog__body">
+			<view class="ray-dialog__body">
 				<slot></slot>
 			</view>
-			<view class="aui-dialog__footer">
+			<view class="ray-dialog__footer">
 				<slot name="footer"></slot>
 			</view>
 		</view>
-	</aui-popup>
+	</ray-popup>
 </template>
 
 <script>
-	import AuiPopup from '../aui-popup/aui-popup.vue'
+	import RayPopup from '../ray-popup/ray-popup.vue'
 	export default {
-		name:"aui-dialog",
-		components:{ AuiPopup },
+		name:"ray-dialog",
+		components:{ RayPopup },
 		props:{
 			maskable: {
 				type: Boolean,
@@ -79,7 +79,7 @@
 </script>
 
 <style lang="scss" scoped>
- .aui-dialog{
+ .ray-dialog{
 	background: #FFFFFF;
 	box-shadow: 0 0 16upx 0 rgba(0,0,0,0.20);
 	border-radius: 14upx;

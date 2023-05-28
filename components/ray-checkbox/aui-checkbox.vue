@@ -1,18 +1,18 @@
 <template>
-   <checkbox-group class="component aui-checkbox" @change="onChange">
-	   <view class="aui-checkbox__wrap">
-	   	  <view class="aui-checkbox__item" v-for="(opt,dx) in picker" :key="dx">
-	   	  	<checkbox :value="opt[itemKey]" :checked="isCheckboxChecked(opt[itemKey])" :disabled="disabled" color="#00A73D" class="aui-checkbox__field"/><text class="aui-checkbox__txt">{{opt[itemValue]}}</text>
+   <checkbox-group class="component ray-checkbox" @change="onChange">
+	   <view class="ray-checkbox__wrap">
+	   	  <view class="ray-checkbox__item" v-for="(opt,dx) in picker" :key="dx">
+	   	  	<checkbox :value="opt[itemKey]" :checked="isCheckboxChecked(opt[itemKey])" :disabled="disabled" color="#00A73D" class="ray-checkbox__field"/><text class="ray-checkbox__txt">{{opt[itemValue]}}</text>
 	   	  </view>
 	   </view>
    </checkbox-group>
 </template>
 <script>
-	import AuiField from "../aui-field/aui-field.vue"
+	import RayField from "../ray-field/ray-field.vue"
 	import ToolKit from '../../src/toolkit/toolkit.js'
 	export default {
-		name:"aui-checkbox",
-		extends: AuiField,
+		name:"ray-checkbox",
+		extends: RayField,
 		model:{event:'change'},
 		props:{
 			picker:{
@@ -93,7 +93,7 @@
 </script>
 
 <style lang="scss" scoped>
-.aui-checkbox{
+.ray-checkbox{
 	&__wrap{
 		display: flex;
 		align-items: center;

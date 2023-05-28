@@ -1,17 +1,17 @@
 <!---->
 <template>
-	<scroll-view scroll-x="true" class="component aui-tab" :scroll-into-view="`TAB_ITEM_${value}`" scroll-with-animation>
-		<view class="aui-tab-wrap">
-			<view class="aui-tab-holder"></view>
+	<scroll-view scroll-x="true" class="component ray-tab" :scroll-into-view="`TAB_ITEM_${value}`" scroll-with-animation>
+		<view class="ray-tab-wrap">
+			<view class="ray-tab-holder"></view>
 			<slot></slot>
-			<view class="aui-tab-holder"></view>
+			<view class="ray-tab-holder"></view>
 		</view>
 	</scroll-view>
 </template>
 
 <script>
 	export default {
-		name:"aui-tab",
+		name:"ray-tab",
 		model:{
 			event:'change'
 		},
@@ -57,13 +57,13 @@
 </script>
 
 <style lang="scss">
-    .component.aui-tab{
+    .component.ray-tab{
 		white-space: nowrap;
 		background: #FFFFFF;
-		.aui-tab-holder{
+		.ray-tab-holder{
 			width: 30upx;
 		}
-	    .aui-tab-wrap{
+	    .ray-tab-wrap{
 			min-width: calc(100vw);
 			position: relative;
 			display: flex;

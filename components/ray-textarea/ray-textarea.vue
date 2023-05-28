@@ -1,7 +1,7 @@
 <template>
-	<view class="component aui-textarea" :class="{'aui-textarea--is-flat': flat}">
-		<textarea  class="aui-textarea-field"
-		                 placeholder-class="aui-textarea-placeholder"  
+	<view class="component ray-textarea" :class="{'ray-textarea--is-flat': flat}">
+		<textarea  class="ray-textarea-field"
+		                 placeholder-class="ray-textarea-placeholder"  
 		                 :class="{'is-auto-height':autoHeight,'is-disabled':disabled}" 
 						 :auto-height="autoHeight"
 						 :maxlength="maxlength" 
@@ -12,7 +12,7 @@
 						 @blur="handleBlur"
 						 @input="handleInput"
 						 @focus="handleFocus" />
-			<view class="aui-textarea-tips" v-if="tip">
+			<view class="ray-textarea-tips" v-if="tip">
 				<span style="color: #E26E1F;">{{ value.length }}</span>
 				<span>{{'/'+maxlength+'字'}}</span>
 			</view>			 
@@ -20,10 +20,10 @@
 </template>
 
 <script>
-	import AuiField from "../aui-field/aui-field.vue"
+	import RayField from "../ray-field/ray-field.vue"
 	export default {
-		name:"aui-textarea",
-		extends:AuiField,
+		name:"ray-textarea",
+		extends:RayField,
 		props:{
 			maxlength: {
 				type: [String, Number],
@@ -96,15 +96,15 @@
 </script>
 
 <style lang="scss" scoped>
-.aui-textarea{
+.ray-textarea{
 	position: relative;
 	padding: 20upx;
 	margin:1px;
 	box-sizing: border-box;
-	&.aui-textarea--is-flat{
+	&.ray-textarea--is-flat{
 		padding: 10upx 0upx;
 	}
-	&:not(.aui-textarea--is-flat)::before {
+	&:not(.ray-textarea--is-flat)::before {
 		position: absolute;
 		content: "";
 		top: 0;
@@ -116,19 +116,19 @@
 		transform: scale(.5, .5);
 		transform-origin: 0 0;
 	}
-	.aui-textarea-placeholder{
+	.ray-textarea-placeholder{
 		color:rgba(153,153,153,1);
 		font-size:30upx
 	}
 	
-	.aui-textarea-tips{
+	.ray-textarea-tips{
 		text-align: right;
 		line-height: 20upx;
 		font-size: 20upx;
 		color: #999999;
 	}
 	
-	.aui-textarea-field {
+	.ray-textarea-field {
 		width: 100%;
 		min-height: 100upx;
 		margin: 0;

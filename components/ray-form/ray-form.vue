@@ -1,12 +1,12 @@
 <template>
-	<form class="component aui-form" @submit="onFormSubmit" @reset="onFormReset">
+	<form class="component ray-form" @submit="onFormSubmit" @reset="onFormReset">
 		<slot></slot>
 	</form>
 </template>
 
 <script>
 	export default {
-		name:"aui-form",
+		name:"ray-form",
 		/**
 		 * 属性定义
 		 */
@@ -71,7 +71,7 @@
 </script>
 
 <style lang="scss" scoped>
-.component.aui-form{
+.component.ray-form{
 	display: block;
 	padding: 0  0 10upx;
 	margin: 0;

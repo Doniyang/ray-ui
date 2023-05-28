@@ -1,16 +1,16 @@
 <template>
-	<view class="component aui-switch" :class="{'is-checked': isCkecked}" @click.stop="handleClick">
-		<view class="aui-switch__item">{{checkedLabel}}</view>
-		<view class="aui-switch__item">{{uncheckLabel}}</view>
-		<view class="aui-switch__slider" :class="[isCkecked? 'is-checked':'is-unchecked']"></view>
+	<view class="component ray-switch" :class="{'is-checked': isCkecked}" @click.stop="handleClick">
+		<view class="ray-switch__item">{{checkedLabel}}</view>
+		<view class="ray-switch__item">{{uncheckLabel}}</view>
+		<view class="ray-switch__slider" :class="[isCkecked? 'is-checked':'is-unchecked']"></view>
 	</view>
 </template>
 
 <script>
-	import AuiField from '../aui-field/aui-field.vue'
+	import RayField from '../ray-field/ray-field.vue'
 	export default {
-		name:"aui-switch",
-		extends: AuiField,
+		name:"ray-switch",
+		extends: RayField,
 		model: { event:"change" },
 		data(){
 			return{
@@ -88,7 +88,7 @@
 </script>
 
 <style lang="scss" scoped>
-	.aui-switch{
+	.ray-switch{
 		width: 100upx;
 		height: 50upx;
 		border-radius: 30upx;

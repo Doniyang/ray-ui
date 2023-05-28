@@ -1,12 +1,12 @@
 <template>
-	<view class="component aui-cell" :class="{'aui-cell--is-divider':divider }">
-		<view class="aui-cell__label">
+	<view class="component ray-cell" :class="{'ray-cell--is-divider':divider }">
+		<view class="ray-cell__label">
 			<slot name="label">{{label}}</slot>
 		</view>
-		<view class="aui-cell__field">
+		<view class="ray-cell__field">
 			<slot>{{value}}</slot>
 		</view>
-		<view class="aui-cell__extra">
+		<view class="ray-cell__extra">
 			<slot name="extra"></slot>
 		</view>
 	</view>
@@ -14,7 +14,7 @@
 
 <script>
 	export default {
-		name: "aui-cell",
+		name: "ray-cell",
 		props: {
 			divider:{
 				type:Boolean,
@@ -33,13 +33,13 @@
 </script>
 
 <style lang="scss" scoped>
-	.aui-cell {
+	.ray-cell {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		min-height: 100upx;
 			
-        &.aui-cell--is-divider{
+        &.ray-cell--is-divider{
 			position: relative;
 			&::before {
 				content: '';

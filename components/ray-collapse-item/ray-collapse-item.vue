@@ -1,12 +1,12 @@
 <template>
-	<view class="component aui-collapse-panel">
-		<view class="aui-collapse-panel-header" @tap="handleTap" v-if="!noTitle">
-			<image src="./icon/prefix.png" class="aui-collapse-panel-image"></image>
-			<view class="aui-collapse-panel-title">{{title}}</view>
+	<view class="component ray-collapse-panel">
+		<view class="ray-collapse-panel-header" @tap="handleTap" v-if="!noTitle">
+			<image src="./icon/prefix.png" class="ray-collapse-panel-image"></image>
+			<view class="ray-collapse-panel-title">{{title}}</view>
 			<slot name="extra"></slot>
-			<image class="aui-collapse-panel-arrow" :class="{'is-open':isOpened}" src="/static/icon/right.svg"></image>
+			<image class="ray-collapse-panel-arrow" :class="{'is-open':isOpened}" src="/static/icon/right.svg"></image>
 		</view>
-	     <view class="aui-collapse-panel-wrap" v-if="isOpened">
+	     <view class="ray-collapse-panel-wrap" v-if="isOpened">
 			 <slot></slot>
 		 </view>
 	</view>
@@ -14,7 +14,7 @@
 
 <script>
 	export default {
-		name:"aui-collapse-panel",
+		name:"ray-collapse-panel",
 		props:{
 			title:{ type:String },
 			noTitle:{
@@ -56,7 +56,7 @@
 </script>
 
 <style lang="scss" scoped>
- .aui-collapse-panel{
+ .ray-collapse-panel{
 	position: relative;
 	width: 100%;
 	

@@ -1,18 +1,18 @@
 <template>
-	<radio-group class="component aui-radio">
-		<view class="aui-radio__wrap" @change="onChange">
-			<view class="aui-radio__item" v-for="(opt,dx) in picker" :key="dx">
-				<radio :value="opt[itemKey]" :disabled="disabled" :checked="opt[itemKey] === chdVal" color="#00A73D" class="aui-radio__field"/><text class="aui-radio__txt">{{opt[itemValue]}}</text>
+	<radio-group class="component ray-radio">
+		<view class="ray-radio__wrap" @change="onChange">
+			<view class="ray-radio__item" v-for="(opt,dx) in picker" :key="dx">
+				<radio :value="opt[itemKey]" :disabled="disabled" :checked="opt[itemKey] === chdVal" color="#00A73D" class="ray-radio__field"/><text class="ray-radio__txt">{{opt[itemValue]}}</text>
 			</view>
 		</view>
 	</radio-group>
 </template>
 
 <script>
-	import AuiField from "../aui-field/aui-field.vue"
+	import RayField from "../ray-field/ray-field.vue"
 	export default {
-		name:"aui-radio",
-		extends: AuiField,
+		name:"ray-radio",
+		extends: RayField,
 		model:{ event:'change' },
 		props:{
               picker:{
@@ -78,7 +78,7 @@
 </script>
 
 <style lang="scss" scoped>
-.aui-radio{
+.ray-radio{
 	&__wrap{
 		display: flex;
 		align-items: center;

@@ -1,7 +1,7 @@
 <template>
-	<view v-if="visible" class="component aui-popup" @touchmove.stop.prevent="onTouchMove">
-		<view class="aui-popup__mask" :class="['aui-mask--is-'+type,{'aui-wrap-ani': animation }]" v-if="maskable" @click.stop="onClose"/>
-		<view class="aui-popup__wrap" :class="['aui-popup__wrap--is-'+type,'aui-wrap-ani--is-'+type,{'aui-wrap-ani': animation}]">
+	<view v-if="visible" class="component ray-popup" @touchmove.stop.prevent="onTouchMove">
+		<view class="ray-popup__mask" :class="['ray-mask--is-'+type,{'ray-wrap-ani': animation }]" v-if="maskable" @click.stop="onClose"/>
+		<view class="ray-popup__wrap" :class="['ray-popup__wrap--is-'+type,'ray-wrap-ani--is-'+type,{'ray-wrap-ani': animation}]">
 			<slot></slot>
 		</view>
 	</view>
@@ -9,7 +9,7 @@
 
 <script>
 	export default {
-		name: 'aui-popup',
+		name: 'ray-popup',
 		props: {
 			// 开启动画
 			animation: {
@@ -50,7 +50,7 @@
 	}
 </script>
 <style lang="scss" scoped>
-.component.aui-popup{
+.component.ray-popup{
 	position: fixed;
 	/* #ifdef H5 */
 	top: var(--window-top);
@@ -64,7 +64,7 @@
 	overflow: hidden;
 	z-index: 2023;
 	
-	.aui-popup__mask {
+	.ray-popup__mask {
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -74,28 +74,28 @@
 		opacity: 0;
 	}
 	
-	.aui-popup__wrap {
+	.ray-popup__wrap {
 		/* #ifndef APP-NVUE */
 		display: block;
 		/* #endif */
 		position: absolute;
 	}
 	
-    .aui-popup__wrap--is-top {
+    .ray-popup__wrap--is-top {
 		top: 0;
 		left: 0;
 		right: 0;
 		transform: translateY(-500px);
 	}
 	
-	.aui-popup__wrap--is-bottom {
+	.ray-popup__wrap--is-bottom {
 		bottom: 0;
 		left: 0;
 		right: 0;
 		transform: translateY(500px);
 	}
 	
-	.aui-popup__wrap--is-center {
+	.ray-popup__wrap--is-center {
 		/* #ifndef APP-NVUE */
 		display: flex;
 		flex-direction: column;
@@ -110,38 +110,38 @@
 		opacity: 0;
 	}
 	
-	.aui-wrap-ani {
+	.ray-wrap-ani {
 		transition-property: transform, opacity;
 		transition-duration: 0.2s;
 	}
 	
 	
-	.aui-wrap-ani--is-top {
+	.ray-wrap-ani--is-top {
 		transform: translateY(0);
 	}
 	
-	.aui-wrap-ani--is-bottom {
+	.ray-wrap-ani--is-bottom {
 		transform: translateY(0);
 	}
 	
-	.aui-wrap-ani--is-center {
+	.ray-wrap-ani--is-center {
 		transform: scale(1);
 		opacity: 1;
 	}
-	.aui-mask-ani {
+	.ray-mask-ani {
 		transition-property: opacity;
 		transition-duration: 0.2s;
 	}
 	
-	.aui-mask--is-top {
+	.ray-mask--is-top {
 		opacity: 0.5;
 	}
 	
-	.aui-mask--is-bottom {
+	.ray-mask--is-bottom {
 		opacity: 0.5;
 	}
 	
-	.aui-mask--is-center {
+	.ray-mask--is-center {
 		opacity: 0.5;
 	}		
 }

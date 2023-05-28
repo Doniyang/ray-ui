@@ -1,13 +1,13 @@
 <!--  -->
 <template>
-	<view class="aui-tab-item" :class="{'aui-tab-item--is-actived':isActived}" @tap="handleClick" :id="`TAB_ITEM_${value}`">
+	<view class="ray-tab-item" :class="{'ray-tab-item--is-actived':isActived}" @tap="handleClick" :id="`TAB_ITEM_${value}`">
 		<slot>{{label}}</slot>
 	</view>
 </template>
 
 <script>
 	export default {
-		name:"aui-tab-item",
+		name:"ray-tab-item",
 		props:{
 			value:{
 				type:[String,Number],
@@ -49,7 +49,7 @@
 </script>
 
 <style lang="scss">
-.aui-tab-item{
+.ray-tab-item{
 	position: relative;
 	flex:1 0 auto;
 	min-width: 90upx;
@@ -57,7 +57,7 @@
 	font-size: 28upx;
 	padding: 20upx 40upx;
 	overflow: hidden;
-	&.aui-tab-item--is-actived{
+	&.ray-tab-item--is-actived{
 		font-weight: bold;
 		color: #00A32E;
 		transition: color 300ms ease;
